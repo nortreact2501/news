@@ -1,3 +1,4 @@
+import { Container } from "react-bootstrap";
 import { Outlet, NavLink } from "react-router-dom";
 
 export default function Layout() {
@@ -17,7 +18,9 @@ export default function Layout() {
             </ul>
           </nav>
     
+          <Container className="p-5" >
           <Outlet />
+          </Container>
           <footer>
             Common footer for all pages
           </footer>
