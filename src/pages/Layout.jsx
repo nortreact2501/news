@@ -1,7 +1,10 @@
 import { Container } from "react-bootstrap";
 import { Outlet, NavLink } from "react-router-dom";
+import { useAppSelector } from "../app/hooks";
+import { selectCount } from "../features/newsCounter/newsCounterSlice";
 
 export default function Layout() {
+    const blogReadCount = useAppSelector(selectCount)
     return (
         <>
           <nav>
@@ -23,6 +26,9 @@ export default function Layout() {
           </Container>
           <footer>
             Common footer for all pages
+            <div>
+              Total count of read blog posts: {blogReadCount}
+            </div>
           </footer>
         </>
       )
