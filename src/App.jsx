@@ -9,12 +9,12 @@ import Blogs from './pages/Blogs';
 import Contact from './pages/Contact';
 import NoPage from './pages/NoPage';
 import BlogDetails from './pages/BlogDetails';
-import useFetchBlogsList from './hooks/useFetchBlogsList';
+import useFetchBlogsListRedux from './hooks/useFetcchBlogsListRedux';
 import { Spinner } from 'react-bootstrap';
 
 export default function App() {
-  const {loading, error, blogItems} = useFetchBlogsList();
-  if (loading) {
+  const {status, error, blogItems} = useFetchBlogsListRedux();
+  if (status === 'pending') {
     return <Spinner />
   }
   return (
